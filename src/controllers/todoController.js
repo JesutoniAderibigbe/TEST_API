@@ -39,7 +39,7 @@ exports.getTodos = async (req, res) => {
 
 exports.getTodoById = async (req, res) => {
     try {
-    const todo = await Todo.findById(req.params.id).populate("user");
+    const todo = await Todo.findOne({email: req.params.email}).populate("user");
     if (!todo) {
     return res.status(404).json({ message: 'Todo not found' });
     }
