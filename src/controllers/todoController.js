@@ -41,7 +41,7 @@ exports.getTodoById = async (req, res) => {
     try {
     const todo = await Todo.findOne({email: req.params.email}).populate("user");
     if (!todo) {
-    return res.status(404).json({ message: 'Todo not found' });
+    return res.status(404).json({ message: 'Email not found' });
     }
     res.json(todo);
     } catch (error) {
